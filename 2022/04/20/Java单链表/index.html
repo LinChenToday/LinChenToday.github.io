@@ -4,8 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, YunRecord">
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex">
+    <meta name="keywords" content="Java单链表, YunRecord">
+    <meta name="description" content="java写单链表单链表介绍链表中的数据是以结点来表示的，每个结点的构成：元素(数据元素的映象) + 指针(指示后继元素存储位置)，元素就是存储数据的存储单元，指针就是连接每个结点的地址数据。
+链接方式存储的线性表简称为链表（Linked L">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +20,7 @@
 
     
 
-    <title>Hello World | YunRecord</title>
+    <title>Java单链表 | YunRecord</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -309,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hello World</h1>
+                    <h1 class="description center-align post-title">Java单链表</h1>
                 </div>
             </div>
         </div>
@@ -428,9 +429,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/">
+                                <span class="chip bg-color">数据结构基础</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -463,19 +468,260 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+                <h1 id="java写单链表"><a href="#java写单链表" class="headerlink" title="java写单链表"></a>java写单链表</h1><h2 id="单链表介绍"><a href="#单链表介绍" class="headerlink" title="单链表介绍"></a>单链表介绍</h2><p>链表中的数据是以结点来表示的，每个结点的构成：元素(数据元素的映象) + 指针(指示后继元素存储位置)，元素就是存储数据的存储单元，指针就是连接每个结点的地址数据。</p>
+<h2 id="链接方式存储的线性表简称为链表（Linked-List）"><a href="#链接方式存储的线性表简称为链表（Linked-List）" class="headerlink" title="链接方式存储的线性表简称为链表（Linked List）"></a>链接方式存储的线性表简称为链表（Linked List）</h2><p><img src="https://bkimg.cdn.bcebos.com/pic/b2de9c82d158ccbfebe4998510d8bc3eb1354130?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2U5Mg==,g_7,xp_5,yp_5/format,f_auto"><br>data域–存放结点值的数据域<br>next域–存放结点的直接后继的地址（位置）的指针域（链域）<br>链表通过每个结点的链域将线性表的n个结点按其逻辑顺序链接在一起的，每个结点只有一个链域的链表称为单链表（Single Linked List）。</p>
+<h2 id="单链表的建立"><a href="#单链表的建立" class="headerlink" title="单链表的建立"></a>单链表的建立</h2><h5 id="创建节点类（在需要新的节点时，可以直接new新的节点）"><a href="#创建节点类（在需要新的节点时，可以直接new新的节点）" class="headerlink" title="创建节点类（在需要新的节点时，可以直接new新的节点）"></a>创建节点类（在需要新的节点时，可以直接new新的节点）</h5><pre><code>      class LinkNode &#123;
+            public int no;
+            public LinkNode next;
+        
+            public LinkNode(int no) &#123;
+                this.no = no;
+            &#125;
+        &#125;
+        
+</code></pre>
+<h5 id="创建链表的类"><a href="#创建链表的类" class="headerlink" title="创建链表的类"></a>创建链表的类</h5><pre><code>    class LinkList &#123;
+        //初始化头节点，以便于后面链表的各种操作
+            LinkNode head = new LinkNode(0);
+        &#125;
+</code></pre>
+<h5 id="单链表的建立操作"><a href="#单链表的建立操作" class="headerlink" title="单链表的建立操作"></a>单链表的建立操作</h5><ul>
+<li><p>头插法（较快）</p>
+<pre><code> public void addHead(LinkNode node) &#123;
+              if (node == null) &#123;
+                  System.out.println(&quot;插入节点不能为空&quot;);
+                  return;
+              &#125;
+              LinkNode cur = head.next;
+              head.next = node;
+              node.next = cur;
+          &#125;
+</code></pre>
+</li>
+<li><p>尾插法（较快）</p>
+<pre><code>  public void addLast(LinkNode node) &#123;
+              if (node == null) &#123;
+                  System.out.println(&quot;插入节点为空&quot;);
+                  return;
+              &#125;
+              //没有节点时
+              if (head.next == null) &#123;
+                  head.next = node;
+              &#125;else &#123;
+                  LinkNode cur = head.next;
+                  while (cur.next != null) &#123;
+                      cur = cur.next;
+                  &#125;
+                  cur.next = node;
+              &#125;
+          &#125;
+      
+</code></pre>
+</li>
+<li><p>链表值插入节点（需要遍历链表，比较耗时）</p>
+<pre><code>   //特定位置插入节点(特定位置插入数值的话，可以将node换成data,在addByNo内部new LinkNode)
+              public void addByNo(int index, LinkNode node) &#123;
+                  if(node == null)&#123;
+                              System.out.println(&quot;插入节点为空&quot;);
+                              return;
+                          &#125;
+                  if (index &lt; 0 || index &gt; length()) &#123;
+                      System.out.println(&quot;插入节点位置值不合法！&quot;);
+                      return;
+                  &#125;
+                  if (index == 0) &#123;
+                      addHead(node);
+                      return;
+                  &#125;
+                  if (index == length()) &#123;
+                      addLast(node);
+                      return;
+                  &#125;
+                  LinkNode cur = head;
+                  int count = 0;
+                  while (cur != null) &#123;
+                      if (count == index) &#123;
+                          break;
+                      &#125;
+                      cur = cur.next;
+                      count++;
+                  &#125;
+                  node.next = cur.next;
+                  cur.next = node;
+          
+              &#125;
+</code></pre>
+</li>
+<li><p>按照no值从小到大的顺序插入链表</p>
+<pre><code>   public void addOrderByNo(LinkNode node) &#123;
+          if (node == null) &#123;
+              System.out.println(&quot;插入节点不能为空&quot;);
+              return;
+          &#125;
+          //第一次插入
+          if (head.next == null) &#123;
+              head.next = node;
+              return;
+          &#125; else &#123;
+              LinkNode cur = head;
+              boolean flag = false;
+  
+              while (true) &#123;
+                  //node的值小，插在头节点
+                  if (cur.next == null) &#123;
+                      System.out.println(&quot;已到结尾&quot;);
+                      break;
+                  &#125;
+  
+                  if (cur.next.no &gt; node.no) &#123;
+                      break;
+                  &#125; else if (cur.next.no == node.no) &#123;
+                      flag = true;
+                      break;
+                  &#125;
+                  cur = cur.next;
+              &#125;
+              if (!flag) &#123;
+                  node.next = cur.next;
+                  cur.next = node;
+              &#125; else &#123;
+                  System.out.println(&quot;存在相同节点，插入失败&quot;);
+              &#125;
+          &#125;
+      &#125;
+</code></pre>
+</li>
+</ul>
+<h5 id="单链表寻找节点操作"><a href="#单链表寻找节点操作" class="headerlink" title="单链表寻找节点操作"></a>单链表寻找节点操作</h5><ul>
+<li><p>是否存在值为key的节点</p>
+<pre><code>   public boolean isHaveKey(int key) &#123;
+          if (head.next == null) &#123;
+              System.out.println(&quot;链表为空，没有节点&quot;);
+              return false;
+          &#125;
+          LinkNode cur = head.next;
+          boolean flag = false;
+          while (cur != null) &#123;
+              if (cur.no == key) &#123;
+                  flag = true;
+                  break;
+              &#125;
+              cur = cur.next;
+          &#125;
+          if (flag == true) &#123;
+              return true;
+          &#125;
+          return false;
+      &#125;
+</code></pre>
+</li>
+<li><p>节点值为key的前一个节点</p>
+<pre><code>   //返回了一个节点，如查看内容，使用该方法.no的形式查看，注意如果查看的节点不存在，利用方法.no的形式时，会出现空指针异常
+    public LinkNode preNode(int key) &#123;
+          if (head.next == null) &#123;
+              System.out.println(&quot;链表为空，没有节点&quot;);
+              return null;
+          &#125;
+          LinkNode cur = head.next;
+          boolean flag = false;
+          while (cur.next != null) &#123;
+              if (cur.next.no == key) &#123;
+                 return cur;
+              &#125;
+              cur = cur.next;
+          &#125;
+          return null;
+      &#125;
+</code></pre>
+</li>
+</ul>
+<h5 id="单链表反转相关"><a href="#单链表反转相关" class="headerlink" title="单链表反转相关"></a>单链表反转相关</h5><pre><code>       public void reverse() &#123;
+            if (head.next == null || head.next.next == null) &#123;
+                return;
+            &#125;
+            //定义临时变量temp存放循环的cur.next节点，新建新的链表，最后将新链表赋值给原链表
+            LinkNode cur = head.next;
+            LinkNode temp = null;
+            LinkNode newLink = new LinkNode(0);
+            while (cur != null) &#123;
+                temp = cur.next;//保存cur.next节点，继续完成循环
+                cur.next = newLink.next;//cur节点的next值保存为新链表的next值，即在头插入当前的节点
+                newLink.next = cur;//将cur节点赋值给新链表
+                cur = temp;
+                
+            &#125;
+            head.next = newLink.next;
+        &#125;
+    
+</code></pre>
+<h5 id="单链表的其他操作"><a href="#单链表的其他操作" class="headerlink" title="单链表的其他操作"></a>单链表的其他操作</h5><ul>
+<li><p>获取链表是否为空</p>
+<pre><code>  public boolean isEmpty()&#123;
+          if(head.next == null)&#123;
+              System.out.println(&quot;链表为空&quot;);
+              return true;
+          &#125;
+          return false;
+      &#125;
+</code></pre>
+</li>
+<li><p>获取链表的长度</p>
+<pre><code>    public int length() &#123;
+          int count = 0;
+          LinkNode cur = head.next;
+          while (cur != null) &#123;
+              count++;
+              cur = cur.next;
+          &#125;
+          return count;
+      &#125;
+</code></pre>
+</li>
+<li><p>遍历链表</p>
+<pre><code>   public void show() &#123;
+          if (head.next == null) &#123;
+              System.out.println(&quot;链表为空&quot;);
+              return;
+          &#125;
+          LinkNode cur = head.next;
+          while (cur != null) &#123;
+              System.out.println(cur.no);
+              cur = cur.next;
+          &#125;
+      &#125;
+</code></pre>
+</li>
+<li><p>清空链表</p>
+<pre><code>   public void clean()&#123;
+          head.next = null;
+      &#125;
+</code></pre>
+</li>
+<li><p>删除节点（遍历，效率低）</p>
+<pre><code>  public void del(LinkNode node) &#123;
+          if(node == null || head.next == null)&#123;
+              System.out.println(&quot;不能删除空节点&quot;);
+              return;
+          &#125;
+  
+          LinkNode cur = head;
+          boolean flag = false;
+          while (cur.next != null)&#123;
+              if(cur.next == node)&#123;
+                  flag = true;
+                  break;
+              &#125;
+              cur = cur.next;
+          &#125;
+          if(flag)&#123;
+              cur.next = node.next;
+          &#125;else &#123;
+              System.out.println(&quot;元素不存在&quot;);
+          &#125;
+      &#125;
+</code></pre>
+</li>
+</ul>
 
                 
             </div>
@@ -502,7 +748,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://linchentoday.github.io/2022/04/20/hello-world/">https://linchentoday.github.io/2022/04/20/hello-world/</a>
+                    <a href="https://linchentoday.github.io/2022/04/20/Java%E5%8D%95%E9%93%BE%E8%A1%A8/">https://linchentoday.github.io/2022/04/20/Java%E5%8D%95%E9%93%BE%E8%A1%A8/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -539,7 +785,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/">
+                                    <span class="chip bg-color">数据结构基础</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -711,9 +961,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2022/04/20/Java%E5%8D%95%E9%93%BE%E8%A1%A8/">
                     <div class="card-image">
@@ -731,9 +982,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-20
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-20
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -742,6 +993,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -757,7 +1009,7 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
                 <a href="/2022/04/20/hello-world/">
@@ -787,7 +1039,6 @@
                         </span>
                     </div>
                 </div>
-
                 
             </div>
         </div>
