@@ -4,9 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Java单链表, YunRecord">
-    <meta name="description" content="java写单链表1.单链表介绍链表中的数据是以结点来表示的，每个结点的构成：元素(数据元素的映象) + 指针(指示后继元素存储位置)，元素就是存储数据的存储单元，指针就是连接每个结点的地址数据。
-2.链接方式存储的线性表简称为链表（Link">
+    <meta name="keywords" content="Java实现双向链表, YunRecord">
+    <meta name="description" content="Java写双向链表1.双向链表介绍双向链表也叫双链表，它的每个数据结点中都有两个指针，分别指向直接后继和直接前驱。所以，从双向链表中的任意一个结点开始，都可以很方便地访问它的前驱结点和后继结点。一般我们都构造双向循环链表。
+2.双链表dat">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +20,7 @@
 
     
 
-    <title>Java单链表 | YunRecord</title>
+    <title>Java实现双向链表 | YunRecord</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Java单链表</h1>
+                    <h1 class="description center-align post-title">Java实现双向链表</h1>
                 </div>
             </div>
         </div>
@@ -447,7 +447,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-04-20
+                    2022-04-21
                 </div>
                 
 
@@ -468,213 +468,143 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="java写单链表"><a href="#java写单链表" class="headerlink" title="java写单链表"></a>java写单链表</h1><h2 id="1-单链表介绍"><a href="#1-单链表介绍" class="headerlink" title="1.单链表介绍"></a>1.单链表介绍</h2><p>链表中的数据是以结点来表示的，每个结点的构成：元素(数据元素的映象) + 指针(指示后继元素存储位置)，元素就是存储数据的存储单元，指针就是连接每个结点的地址数据。</p>
-<h2 id="2-链接方式存储的线性表简称为链表（Linked-List）"><a href="#2-链接方式存储的线性表简称为链表（Linked-List）" class="headerlink" title="2.链接方式存储的线性表简称为链表（Linked List）"></a>2.链接方式存储的线性表简称为链表（Linked List）</h2><p><img src="https://bkimg.cdn.bcebos.com/pic/b2de9c82d158ccbfebe4998510d8bc3eb1354130?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2U5Mg==,g_7,xp_5,yp_5/format,f_auto"><br>data域–存放结点值的数据域<br>next域–存放结点的直接后继的地址（位置）的指针域（链域）<br>链表通过每个结点的链域将线性表的n个结点按其逻辑顺序链接在一起的，每个结点只有一个链域的链表称为单链表（Single Linked List）。</p>
-<h2 id="3-单链表的建立"><a href="#3-单链表的建立" class="headerlink" title="3.单链表的建立"></a>3.单链表的建立</h2><h5 id="创建节点类（在需要新的节点时，可以直接new新的节点）"><a href="#创建节点类（在需要新的节点时，可以直接new新的节点）" class="headerlink" title="创建节点类（在需要新的节点时，可以直接new新的节点）"></a>创建节点类（在需要新的节点时，可以直接new新的节点）</h5><pre><code>      class LinkNode &#123;
-            public int no;//节点值
-            public LinkNode next;//后节点地址
-        
-            public LinkNode(int no) &#123;
-                this.no = no;
-            &#125;
+                <h1 id="Java写双向链表"><a href="#Java写双向链表" class="headerlink" title="Java写双向链表"></a>Java写双向链表</h1><h2 id="1-双向链表介绍"><a href="#1-双向链表介绍" class="headerlink" title="1.双向链表介绍"></a>1.双向链表介绍</h2><p>双向链表也叫双链表，它的每个数据结点中都有两个指针，分别指向直接后继和直接前驱。所以，从双向链表中的任意一个结点开始，都可以很方便地访问它的前驱结点和后继结点。一般我们都构造双向循环链表。</p>
+<h2 id="2-双链表"><a href="#2-双链表" class="headerlink" title="2.双链表"></a>2.双链表</h2><p><img src="https://img-blog.csdnimg.cn/20200506161836816.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3RvbnlfeWFuZzY=,size_16,color_FFFFFF,t_70"><br>data域–存放结点值的数据域<br>pre域–存放结点的直接前一个节点的地址（位置）的指针域（链域）<br>next域–存放结点的直接后继的地址（位置）的指针域（链域）</p>
+<h2 id="3-双链表的建立"><a href="#3-双链表的建立" class="headerlink" title="3.双链表的建立"></a>3.双链表的建立</h2><h5 id="创建节点类（在需要新的节点时，可以直接new新的节点）"><a href="#创建节点类（在需要新的节点时，可以直接new新的节点）" class="headerlink" title="创建节点类（在需要新的节点时，可以直接new新的节点）"></a>创建节点类（在需要新的节点时，可以直接new新的节点）</h5><pre><code>    class LinkNode&#123;
+        public int no;//双链表的内容值
+        public LinkNode pre;//前一个节点地址
+        public LinkNode next;//后一个节点地址，没有节点为null
+    
+        public LinkNode(int no) &#123;
+            this.no = no;
         &#125;
+    &#125;
         
 </code></pre>
-<h5 id="创建链表的类"><a href="#创建链表的类" class="headerlink" title="创建链表的类"></a>创建链表的类</h5><pre><code>    class LinkList &#123;
-        //初始化头节点，以便于后面链表的各种操作
-           private LinkNode head = new LinkNode(0);
-        &#125;
+<h5 id="创建链表的类"><a href="#创建链表的类" class="headerlink" title="创建链表的类"></a>创建链表的类</h5><pre><code>   class DoubleLinkList&#123;
+   //初始化头节点
+       private LinkNode head = new LinkNode(0);
+       
+   &#125;
+   
+   
+   
 </code></pre>
-<h5 id="单链表的建立操作"><a href="#单链表的建立操作" class="headerlink" title="单链表的建立操作"></a>单链表的建立操作</h5><ul>
+<h5 id="链表的建立操作"><a href="#链表的建立操作" class="headerlink" title="链表的建立操作"></a>链表的建立操作</h5><ul>
 <li><p>头插法（较快）</p>
-<pre><code> public void addHead(LinkNode node) &#123;
-              if (node == null) &#123;
-                  System.out.println(&quot;插入节点不能为空&quot;);
-                  return;
-              &#125;
-              LinkNode cur = head.next;
-              head.next = node;
-              node.next = cur;
+<pre><code>   public void addHead(LinkNode node) &#123;
+          if (node == null) &#123;
+              System.out.println(&quot;不能插入空节点&quot;);
+              return;
           &#125;
+          //将node的尾指针取到head的尾指针地址，将队伍拉到自己的尾巴后面
+          if (head.next != null) &#123;
+              node.next = head.next;
+              head.next.pre = node;
+          &#125;
+          //将node节点头放入到head节点后面
+  
+          head.next = node;
+          node.pre = head;
+      &#125;
 </code></pre>
 </li>
 <li><p>尾插法（需要遍历）</p>
 <pre><code>  public void addLast(LinkNode node) &#123;
-              if (node == null) &#123;
-                  System.out.println(&quot;插入节点为空&quot;);
-                  return;
-              &#125;
-              //没有节点时
-              if (head.next == null) &#123;
-                  head.next = node;
-              &#125;else &#123;
-                  LinkNode cur = head.next;
-                  while (cur.next != null) &#123;
-                      cur = cur.next;
-                  &#125;
-                  cur.next = node;
-              &#125;
+          if (node == null) &#123;
+              System.out.println(&quot;不能插入空节点&quot;);
+              return;
           &#125;
-      
+          LinkNode cur = head;
+          while (cur.next != null) &#123;
+              cur = cur.next;
+          &#125;
+          cur.next = node;
+          node.pre = cur;
+      &#125;
 </code></pre>
 </li>
 <li><p>特定位置插入节点（需要遍历链表，比较耗时）</p>
-<pre><code>   //特定位置插入节点(特定位置插入数值的话，可以将node换成data,在addByNo内部new LinkNode)
-              public void addByNo(int index, LinkNode node) &#123;
-                  if(node == null)&#123;
-                              System.out.println(&quot;插入节点为空&quot;);
-                              return;
-                          &#125;
-                  if (index &lt; 0 || index &gt; length()) &#123;
-                      System.out.println(&quot;插入节点位置值不合法！&quot;);
-                      return;
-                  &#125;
-                  if (index == 0) &#123;
-                      addHead(node);
-                      return;
-                  &#125;
-                  if (index == length()) &#123;
-                      addLast(node);
-                      return;
-                  &#125;
-                  LinkNode cur = head;
-                  int count = 0;
-                  while (cur != null) &#123;
-                      if (count == index) &#123;
-                          break;
-                      &#125;
-                      cur = cur.next;
-                      count++;
-                  &#125;
-                  node.next = cur.next;
-                  cur.next = node;
-          
-              &#125;
+<pre><code>  public void addByIndex(int index, LinkNode node) &#123;
+          if (node == null) &#123;
+              System.out.println(&quot;不能插入空节点&quot;);
+              return;
+          &#125;
+          if (index &lt; 0 || index &gt; length()) &#123;
+              System.out.println(&quot;输入值超出范围&quot;);
+              return;
+          &#125;
+          int count = 0;
+          LinkNode cur = head;
+          while (count &lt; index) &#123;
+              cur = cur.next;
+              count++;
+          &#125;
+  
+          node.next = cur.next;
+          node.pre = cur;
+          if (cur.next != null) &#123;
+              cur.next.pre = node;
+          &#125;
+          cur.next = node;
+      &#125;
 </code></pre>
 </li>
 <li><p>按照no值从小到大的顺序插入链表</p>
-<pre><code>   public void addOrderByNo(LinkNode node) &#123;
+<pre><code>  public void addOrderByNo(LinkNode node) &#123;
           if (node == null) &#123;
-              System.out.println(&quot;插入节点不能为空&quot;);
+              System.out.println(&quot;不能插入空节点&quot;);
               return;
           &#125;
-          //第一次插入
-          if (head.next == null) &#123;
-              head.next = node;
-              return;
-          &#125; else &#123;
-              LinkNode cur = head;
-              boolean flag = false;
   
-              while (true) &#123;
-                  //node的值小，插在头节点
-                  if (cur.next == null) &#123;
-                      System.out.println(&quot;已到结尾&quot;);
-                      break;
-                  &#125;
-  
-                  if (cur.next.no &gt; node.no) &#123;
-                      break;
-                  &#125; else if (cur.next.no == node.no) &#123;
-                      flag = true;
-                      break;
-                  &#125;
-                  cur = cur.next;
-              &#125;
-              if (!flag) &#123;
-                  node.next = cur.next;
-                  cur.next = node;
-              &#125; else &#123;
-                  System.out.println(&quot;存在相同节点，插入失败&quot;);
-              &#125;
+          LinkNode cur = head;
+          while (cur.next != null &amp;&amp; cur.next.no &lt; node.no) &#123;
+              cur = cur.next;
           &#125;
+  //        LinkNode temp = cur;
+          if (cur.next != null) &#123;
+              cur.next.pre = node;
+          &#125;
+          node.next = cur.next;
+          node.pre = cur;
+          cur.next = node;
+  
+  
       &#125;
 </code></pre>
 </li>
 </ul>
 <h5 id="单链表寻找节点操作"><a href="#单链表寻找节点操作" class="headerlink" title="单链表寻找节点操作"></a>单链表寻找节点操作</h5><ul>
 <li><p>是否存在值为key的节点</p>
-<pre><code>   public boolean isHaveKey(int key) &#123;
-          if (head.next == null) &#123;
-              System.out.println(&quot;链表为空，没有节点&quot;);
+<pre><code>  public boolean isHaveKey(int no) &#123;
+          if (isEmpty()) &#123;
               return false;
           &#125;
           LinkNode cur = head.next;
           boolean flag = false;
           while (cur != null) &#123;
-              if (cur.no == key) &#123;
+              if (cur.no == no) &#123;
                   flag = true;
                   break;
               &#125;
               cur = cur.next;
           &#125;
-          if (flag == true) &#123;
+          if(flag)&#123;
               return true;
           &#125;
           return false;
-      &#125;
-</code></pre>
-</li>
-<li><p>节点值为key的前一个节点</p>
-<pre><code>   //返回了一个节点，如查看内容，使用该方法.no的形式查看，注意如果查看的节点不存在，利用方法.no的形式时，会出现空指针异常
-    public LinkNode preNode(int key) &#123;
-          if (head.next == null) &#123;
-              System.out.println(&quot;链表为空，没有节点&quot;);
-              return null;
-          &#125;
-          LinkNode cur = head.next;
-          boolean flag = false;
-          while (cur.next != null) &#123;
-              if (cur.next.no == key) &#123;
-                 return cur;
-              &#125;
-              cur = cur.next;
-          &#125;
-          return null;
       &#125;
 </code></pre>
 </li>
 </ul>
-<h5 id="单链表反转相关"><a href="#单链表反转相关" class="headerlink" title="单链表反转相关"></a>单链表反转相关</h5><pre><code>       public void reverse() &#123;
-            if (head.next == null || head.next.next == null) &#123;
-                return;
-            &#125;
-            //定义临时变量temp存放循环的cur.next节点，新建新的链表，最后将新链表赋值给原链表
-            LinkNode cur = head.next;
-            LinkNode temp = null;
-            LinkNode newLink = new LinkNode(0);
-            while (cur != null) &#123;
-                temp = cur.next;//保存cur.next节点，继续完成循环
-                cur.next = newLink.next;//cur节点的next值保存为新链表的next值，即在头插入当前的节点
-                newLink.next = cur;//将cur节点赋值给新链表
-                cur = temp;
-                
-            &#125;
-            head.next = newLink.next;
-        &#125;
-    
-</code></pre>
 <h5 id="单链表的其他操作"><a href="#单链表的其他操作" class="headerlink" title="单链表的其他操作"></a>单链表的其他操作</h5><ul>
 <li><p>获取链表是否为空</p>
-<pre><code>  public boolean isEmpty()&#123;
-          if(head.next == null)&#123;
-              System.out.println(&quot;链表为空&quot;);
-              return true;
-          &#125;
-          return false;
-      &#125;
-</code></pre>
-</li>
-<li><p>获取链表的长度</p>
-<pre><code>    public int length() &#123;
-          int count = 0;
-          LinkNode cur = head.next;
-          while (cur != null) &#123;
-              count++;
-              cur = cur.next;
-          &#125;
-          return count;
-      &#125;
+<pre><code> public boolean isEmpty() &#123;
+         if (head.next == null) &#123;
+             return true;
+         &#125;
+         return false;
+     &#125;
 </code></pre>
 </li>
 <li><p>遍历链表</p>
@@ -684,40 +614,61 @@
               return;
           &#125;
           LinkNode cur = head.next;
-          while (cur != null) &#123;
-              System.out.println(cur.no);
+          while (true) &#123;
+              if (cur == null) &#123;
+                  break;
+              &#125;
+              System.out.println(cur);
               cur = cur.next;
           &#125;
       &#125;
 </code></pre>
 </li>
-<li><p>清空链表</p>
-<pre><code>   public void clean()&#123;
-          head.next = null;
+<li><p>获取链表的长度</p>
+<pre><code>   public int length() &#123;
+          if (head.next == null) &#123;
+              System.out.println(&quot;链表为空&quot;);
+              return 0;
+          &#125;
+          LinkNode cur = head.next;
+          int count = 0;
+          while (true) &#123;
+              if (cur == null) &#123;
+                  break;
+              &#125;
+              count++;
+              cur = cur.next;
+          &#125;
+          return count;
       &#125;
 </code></pre>
 </li>
 <li><p>删除节点（遍历，效率低）</p>
-<pre><code>  public void del(LinkNode node) &#123;
-          if(node == null || head.next == null)&#123;
-              System.out.println(&quot;不能删除空节点&quot;);
+<pre><code>   public void del(int no) &#123;
+          if (isEmpty()) &#123;
+              System.out.println(&quot;链表为空，删除失败！&quot;);
               return;
           &#125;
-  
-          LinkNode cur = head;
+          LinkNode cur = head.next;
           boolean flag = false;
-          while (cur.next != null)&#123;
-              if(cur.next == node)&#123;
+          while (cur != null) &#123;
+              if (cur.no == no) &#123;
                   flag = true;
                   break;
               &#125;
               cur = cur.next;
           &#125;
-          if(flag)&#123;
-              cur.next = node.next;
-          &#125;else &#123;
-              System.out.println(&quot;元素不存在&quot;);
+          if (flag) &#123;
+              cur.pre.next = cur.next;
+              if (cur.next != null) &#123;
+                  cur.next.pre = cur.pre;
+              &#125;
+              System.out.println(&quot;删除成功&quot;);
+              return;
+          &#125; else &#123;
+              System.out.println(&quot;没有数值为&quot; + no + &quot;的节点，删除失败&quot;);
           &#125;
+  
       &#125;
 </code></pre>
 </li>
@@ -748,7 +699,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://linchentoday.github.io/2022/04/20/Java%E5%8D%95%E9%93%BE%E8%A1%A8/">https://linchentoday.github.io/2022/04/20/Java%E5%8D%95%E9%93%BE%E8%A1%A8/</a>
+                    <a href="https://linchentoday.github.io/2022/04/21/Java%E5%AE%9E%E7%8E%B0%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/">https://linchentoday.github.io/2022/04/21/Java%E5%AE%9E%E7%8E%B0%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -961,9 +912,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2022/04/21/Java%E5%AE%9E%E7%8E%B0%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/">
                     <div class="card-image">
@@ -981,9 +933,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-21
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-21
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -992,6 +944,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1007,7 +960,7 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
                 <a href="/2022/04/20/Java%E5%8D%95%E9%93%BE%E8%A1%A8/">
@@ -1037,7 +990,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
