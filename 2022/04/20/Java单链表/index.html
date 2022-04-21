@@ -5,8 +5,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="Java单链表, YunRecord">
-    <meta name="description" content="java写单链表单链表介绍链表中的数据是以结点来表示的，每个结点的构成：元素(数据元素的映象) + 指针(指示后继元素存储位置)，元素就是存储数据的存储单元，指针就是连接每个结点的地址数据。
-链接方式存储的线性表简称为链表（Linked L">
+    <meta name="description" content="java写单链表1.单链表介绍链表中的数据是以结点来表示的，每个结点的构成：元素(数据元素的映象) + 指针(指示后继元素存储位置)，元素就是存储数据的存储单元，指针就是连接每个结点的地址数据。
+2.链接方式存储的线性表简称为链表（Link">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -468,11 +468,11 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="java写单链表"><a href="#java写单链表" class="headerlink" title="java写单链表"></a>java写单链表</h1><h2 id="单链表介绍"><a href="#单链表介绍" class="headerlink" title="单链表介绍"></a>单链表介绍</h2><p>链表中的数据是以结点来表示的，每个结点的构成：元素(数据元素的映象) + 指针(指示后继元素存储位置)，元素就是存储数据的存储单元，指针就是连接每个结点的地址数据。</p>
-<h2 id="链接方式存储的线性表简称为链表（Linked-List）"><a href="#链接方式存储的线性表简称为链表（Linked-List）" class="headerlink" title="链接方式存储的线性表简称为链表（Linked List）"></a>链接方式存储的线性表简称为链表（Linked List）</h2><p><img src="https://bkimg.cdn.bcebos.com/pic/b2de9c82d158ccbfebe4998510d8bc3eb1354130?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2U5Mg==,g_7,xp_5,yp_5/format,f_auto"><br>data域–存放结点值的数据域<br>next域–存放结点的直接后继的地址（位置）的指针域（链域）<br>链表通过每个结点的链域将线性表的n个结点按其逻辑顺序链接在一起的，每个结点只有一个链域的链表称为单链表（Single Linked List）。</p>
-<h2 id="单链表的建立"><a href="#单链表的建立" class="headerlink" title="单链表的建立"></a>单链表的建立</h2><h5 id="创建节点类（在需要新的节点时，可以直接new新的节点）"><a href="#创建节点类（在需要新的节点时，可以直接new新的节点）" class="headerlink" title="创建节点类（在需要新的节点时，可以直接new新的节点）"></a>创建节点类（在需要新的节点时，可以直接new新的节点）</h5><pre><code>      class LinkNode &#123;
-            public int no;
-            public LinkNode next;
+                <h1 id="java写单链表"><a href="#java写单链表" class="headerlink" title="java写单链表"></a>java写单链表</h1><h2 id="1-单链表介绍"><a href="#1-单链表介绍" class="headerlink" title="1.单链表介绍"></a>1.单链表介绍</h2><p>链表中的数据是以结点来表示的，每个结点的构成：元素(数据元素的映象) + 指针(指示后继元素存储位置)，元素就是存储数据的存储单元，指针就是连接每个结点的地址数据。</p>
+<h2 id="2-链接方式存储的线性表简称为链表（Linked-List）"><a href="#2-链接方式存储的线性表简称为链表（Linked-List）" class="headerlink" title="2.链接方式存储的线性表简称为链表（Linked List）"></a>2.链接方式存储的线性表简称为链表（Linked List）</h2><p><img src="https://bkimg.cdn.bcebos.com/pic/b2de9c82d158ccbfebe4998510d8bc3eb1354130?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2U5Mg==,g_7,xp_5,yp_5/format,f_auto"><br>data域–存放结点值的数据域<br>next域–存放结点的直接后继的地址（位置）的指针域（链域）<br>链表通过每个结点的链域将线性表的n个结点按其逻辑顺序链接在一起的，每个结点只有一个链域的链表称为单链表（Single Linked List）。</p>
+<h2 id="3-单链表的建立"><a href="#3-单链表的建立" class="headerlink" title="3.单链表的建立"></a>3.单链表的建立</h2><h5 id="创建节点类（在需要新的节点时，可以直接new新的节点）"><a href="#创建节点类（在需要新的节点时，可以直接new新的节点）" class="headerlink" title="创建节点类（在需要新的节点时，可以直接new新的节点）"></a>创建节点类（在需要新的节点时，可以直接new新的节点）</h5><pre><code>      class LinkNode &#123;
+            public int no;//节点值
+            public LinkNode next;//后节点地址
         
             public LinkNode(int no) &#123;
                 this.no = no;
@@ -482,7 +482,7 @@
 </code></pre>
 <h5 id="创建链表的类"><a href="#创建链表的类" class="headerlink" title="创建链表的类"></a>创建链表的类</h5><pre><code>    class LinkList &#123;
         //初始化头节点，以便于后面链表的各种操作
-            LinkNode head = new LinkNode(0);
+           private LinkNode head = new LinkNode(0);
         &#125;
 </code></pre>
 <h5 id="单链表的建立操作"><a href="#单链表的建立操作" class="headerlink" title="单链表的建立操作"></a>单链表的建立操作</h5><ul>
@@ -498,7 +498,7 @@
           &#125;
 </code></pre>
 </li>
-<li><p>尾插法（较快）</p>
+<li><p>尾插法（需要遍历）</p>
 <pre><code>  public void addLast(LinkNode node) &#123;
               if (node == null) &#123;
                   System.out.println(&quot;插入节点为空&quot;);
@@ -518,7 +518,7 @@
       
 </code></pre>
 </li>
-<li><p>链表值插入节点（需要遍历链表，比较耗时）</p>
+<li><p>特定位置插入节点（需要遍历链表，比较耗时）</p>
 <pre><code>   //特定位置插入节点(特定位置插入数值的话，可以将node换成data,在addByNo内部new LinkNode)
               public void addByNo(int index, LinkNode node) &#123;
                   if(node == null)&#123;
