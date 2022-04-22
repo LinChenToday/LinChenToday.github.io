@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>Java单链表写约瑟夫环</title>
+      <link href="/2022/04/22/Java%E5%8D%95%E9%93%BE%E8%A1%A8%E5%86%99%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF%E9%97%AE%E9%A2%98/"/>
+      <url>/2022/04/22/Java%E5%8D%95%E9%93%BE%E8%A1%A8%E5%86%99%E7%BA%A6%E7%91%9F%E5%A4%AB%E7%8E%AF%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<h1 id="约瑟夫环结构实现"><a href="#约瑟夫环结构实现" class="headerlink" title="约瑟夫环结构实现"></a>约瑟夫环结构实现</h1><p><img src="https://bkimg.cdn.bcebos.com/pic/caef76094b36acaf2b72ccd47ed98d1001e99c03?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2U4MA==,g_7,xp_5,yp_5/format,f_auto"></p><h2 id="创建节点类"><a href="#创建节点类" class="headerlink" title="创建节点类"></a>创建节点类</h2><pre><code>    class LinkeNode &#123;        public int no;        public LinkeNode next;            public LinkeNode(int no) &#123;            this.no = no;        &#125;            @Override        public String toString() &#123;            return &quot;LinkeNode&#123;&quot; +                    &quot;no=&quot; + no +                    &#39;&#125;&#39;;        &#125;    &#125;</code></pre><h2 id="创建链表的类"><a href="#创建链表的类" class="headerlink" title="创建链表的类"></a>创建链表的类</h2><pre><code>    //单链表实现约瑟夫环    class LinkedList &#123;        //创建一个头节点        LinkeNode head = new LinkeNode(-1);&#125;</code></pre><h2 id="创建约瑟夫环形"><a href="#创建约瑟夫环形" class="headerlink" title="创建约瑟夫环形"></a>创建约瑟夫环形</h2><pre><code>        //创建约瑟夫环，输入约瑟夫环的大小值，自动创建约瑟夫环        public void add(int num) &#123;            if (num &lt; 1) &#123;                System.out.println(&quot;数值太小，无法创建环&quot;);                return;            &#125;            LinkeNode cur = head;            for (int i = 1; i &lt;= num; i++) &#123;                LinkeNode node = new LinkeNode(i);                cur.next = node;                node.next = head.next;                cur = cur.next;            &#125;            &#125;</code></pre><h2 id="遍历约瑟夫环"><a href="#遍历约瑟夫环" class="headerlink" title="遍历约瑟夫环"></a>遍历约瑟夫环</h2><pre><code>     //遍历约瑟夫环        public void show() &#123;            if (head.next == null) &#123;                System.out.println(&quot;空链表&quot;);                return;            &#125;            LinkeNode cur = head.next;            while (true) &#123;                System.out.println(cur);                if (cur.next == head.next) &#123;                    break;                &#125;                cur = cur.next;                &#125;        &#125;</code></pre><h1 id="丢手绢问题实现"><a href="#丢手绢问题实现" class="headerlink" title="丢手绢问题实现"></a>丢手绢问题实现</h1><pre><code>    //约瑟夫环丢手绢问题        public void OutLink(int startNo, int count, int num) &#123;            if (startNo &lt; 0 || num &lt; startNo || count &lt; 1) &#123;                System.out.println(&quot;输入值不合法&quot;);                return;            &#125;            //创建约瑟夫环            add(num);            //丢手绢问题,从第startNo个值开始出圈            //1.找到第startNo个节点            LinkeNode cur = head.next;            //辅助节点取到cur 的前一个节点，删除cur节点的时候使用            LinkeNode pre = head.next.next;            while (true) &#123;                if (pre.next == head.next) &#123;                    break;                &#125;                pre = pre.next;            &#125;            //找到初始数startNo节点            for (int i = 0; i &lt; startNo - 1; i++) &#123;                cur = cur.next;                pre = pre.next;            &#125;            //2.开始数数出圈            while (true) &#123;                if (cur == pre) &#123;                    break;                &#125;                for (int i = 0; i &lt; count - 1; i++) &#123;                    cur = cur.next;                    pre = pre.next;                &#125;                System.out.println(cur + &quot;出圈&quot;);                LinkeNode temp = pre;                pre.next = cur.next;                cur = pre.next;                pre = temp;                &#125;            System.out.println(&quot;最后出圈的值为&quot; + cur);            &#125;</code></pre><h2 id="结果展示"><a href="#结果展示" class="headerlink" title="结果展示"></a>结果展示</h2><pre><code>         LinkedList linkedList = new LinkedList();         //从第一个开始，第2个出圈，队伍一共5个人         linkedList.OutLink(1, 2, 5);                  //结果：         LinkeNode&#123;no=2&#125;出圈         LinkeNode&#123;no=4&#125;出圈         LinkeNode&#123;no=1&#125;出圈         LinkeNode&#123;no=5&#125;出圈         最后出圈的值为LinkeNode&#123;no=3&#125;</code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 数据结构基础 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Java实现双向链表</title>
       <link href="/2022/04/21/Java%E5%AE%9E%E7%8E%B0%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/"/>
       <url>/2022/04/21/Java%E5%AE%9E%E7%8E%B0%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/</url>
