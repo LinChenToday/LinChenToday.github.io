@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>递归问题</title>
+      <link href="/2022/04/26/%E9%80%92%E5%BD%92%E9%97%AE%E9%A2%98/"/>
+      <url>/2022/04/26/%E9%80%92%E5%BD%92%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Java写递归问题"><a href="#Java写递归问题" class="headerlink" title="Java写递归问题"></a>Java写递归问题</h1><h2 id="汉诺塔"><a href="#汉诺塔" class="headerlink" title="汉诺塔"></a>汉诺塔</h2><pre><code>     //汉诺塔        //借助b将a中的移动到c        public static void tower(int num, char a, char b, char c) &#123;            if (num == 1) &#123;                //直接将a塔的圆盘放到c                System.out.println(a + &quot;-&gt;&quot; + c);            &#125; else &#123;                //借助c将a上层的盘子移动到b                tower(num - 1, a, c, b);                //将a中最下层的盘子放到c中，记录下来                System.out.println(a + &quot;-&gt;&quot; + c);                //将b中剩余的盘子，借助a移动到c                tower(num-1,b,a,c);            &#125;        &#125;</code></pre><h2 id="猴子吃桃"><a href="#猴子吃桃" class="headerlink" title="猴子吃桃"></a>猴子吃桃</h2><pre><code>     /**         * 一堆桃子，猴子每天吃一半数量的桃子，然后再多偷吃一个，给定吃的天数，求解原来一共多少桃子         * 倒数第二天=（最后一天剩余桃子个数+1）*2         * @param day 吃到第几天         * @param n   最后一天剩余的桃子         * @return         */            //猴子吃桃        public static int houzi(int day, int n) &#123;            if (day == 1) &#123;                return n;            &#125; else &#123;                return houzi(day - 1, (n + 1) * 2);            &#125;        &#125;</code></pre><h2 id="走迷宫"><a href="#走迷宫" class="headerlink" title="走迷宫"></a>走迷宫</h2><pre><code>    /**         * 迷宫的1为障碍，2表示通路，3表示走过的不通的路         *         * @param list     表示输入的数组         * @param startRow 开始位置的横坐标         * @param startCol 开始位置的纵坐标         * @return         */        public static boolean seek(int[][] list, int startRow, int startCol) &#123;            //若迷宫的出口为2，则找到路径，迷宫结束            if (list[5][6] == 2) &#123;                return true;            &#125; else &#123;                if (list[startRow][startCol] == 0) &#123;                    list[startRow][startCol] = 2;                    //判断该点能走通，继续下一步                    if (seek(list, startRow + 1, startCol)) &#123;//向下                        return true;                    &#125; else if (seek(list, startRow, startCol + 1)) &#123;//向右                        return true;                    &#125; else if (seek(list, startRow - 1, startCol)) &#123;//向上                        return true;                    &#125; else if (seek(list, startRow, startCol - 1)) &#123;//向左                        return true;                    &#125; else &#123;                        //走不通                        list[startRow][startCol] = 3;                        return false;                    &#125;                &#125; else &#123;                    return false;                &#125;            &#125;        &#125;            结果：        1 1 1 1 1 1 1 1          1 2 2 2 0 0 0 1          1 1 1 2 0 0 0 1          1 0 0 2 0 0 0 1          1 0 0 2 0 0 0 1          1 0 0 2 2 2 2 1          1 1 1 1 1 1 1 1  </code></pre>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 数据结构基础 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Java使用栈写简单逆波兰计算器思想及解释</title>
       <link href="/2022/04/25/Java%E4%BD%BF%E7%94%A8%E6%A0%88%E5%86%99%E9%80%86%E6%B3%A2%E5%85%B0%E8%AE%A1%E7%AE%97%E5%99%A8%E6%80%9D%E6%83%B3%E5%8F%8A%E8%A7%A3%E9%87%8A/"/>
       <url>/2022/04/25/Java%E4%BD%BF%E7%94%A8%E6%A0%88%E5%86%99%E9%80%86%E6%B3%A2%E5%85%B0%E8%AE%A1%E7%AE%97%E5%99%A8%E6%80%9D%E6%83%B3%E5%8F%8A%E8%A7%A3%E9%87%8A/</url>
