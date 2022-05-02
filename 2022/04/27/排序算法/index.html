@@ -4,11 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="递归问题, YunRecord">
-    <meta name="description" content="Java写递归问题汉诺塔     //汉诺塔
-        //借助b将a中的移动到c
-        public static void tower(int num, char a, char b, char c) &amp;#123;
-  ">
+    <meta name="keywords" content="排序算法, YunRecord">
+    <meta name="description" content="冒泡排序
+时间复杂度为O(n^2)
+   for (int i = 0; i &amp;lt; list.length - 1; i++) &amp;#123;
+              for (int j = 0; j &amp;lt; list.lengt">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -22,7 +22,7 @@
 
     
 
-    <title>递归问题 | YunRecord</title>
+    <title>排序算法 | YunRecord</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -312,12 +312,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">递归问题</h1>
+                    <h1 class="description center-align post-title">排序算法</h1>
                 </div>
             </div>
         </div>
@@ -449,7 +449,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-04-26
+                    2022-04-27
                 </div>
                 
 
@@ -458,7 +458,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    479
+                    927
                 </div>
                 
 
@@ -475,82 +475,193 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Java写递归问题"><a href="#Java写递归问题" class="headerlink" title="Java写递归问题"></a>Java写递归问题</h1><h2 id="汉诺塔"><a href="#汉诺塔" class="headerlink" title="汉诺塔"></a>汉诺塔</h2><pre><code>     //汉诺塔
-        //借助b将a中的移动到c
-        public static void tower(int num, char a, char b, char c) &#123;
-            if (num == 1) &#123;
-                //直接将a塔的圆盘放到c
-                System.out.println(a + &quot;-&gt;&quot; + c);
-            &#125; else &#123;
-                //借助c将a上层的盘子移动到b
-                tower(num - 1, a, c, b);
-                //将a中最下层的盘子放到c中，记录下来
-                System.out.println(a + &quot;-&gt;&quot; + c);
-                //将b中剩余的盘子，借助a移动到c
-                tower(num-1,b,a,c);
-            &#125;
-        &#125;
+                <h1 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h1><ul>
+<li><p>时间复杂度为O(n^2)</p>
+<pre><code>   for (int i = 0; i &lt; list.length - 1; i++) &#123;
+              for (int j = 0; j &lt; list.length - 1 - i; j++) &#123;
+                  if(list[j] &gt; list[j+1])&#123;
+                      int temp = list[j];
+                      list[j] = list[j+1];
+                      list[j+1] = temp;
+                  &#125;
+              &#125;
+          &#125;
 </code></pre>
-<h2 id="猴子吃桃"><a href="#猴子吃桃" class="headerlink" title="猴子吃桃"></a>猴子吃桃</h2><pre><code>     /**
-         * 一堆桃子，猴子每天吃一半数量的桃子，然后再多偷吃一个，给定吃的天数，求解原来一共多少桃子
-         * 倒数第二天=（最后一天剩余桃子个数+1）*2
-         * @param day 吃到第几天
-         * @param n   最后一天剩余的桃子
-         * @return
-         */
+</li>
+</ul>
+<h1 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h1><pre><code>    public static int[] choice(int[] list) &#123;
+            for (int i = 0; i &lt; list.length - 1; i++) &#123;
     
-        //猴子吃桃
-        public static int houzi(int day, int n) &#123;
-            if (day == 1) &#123;
-                return n;
-            &#125; else &#123;
-                return houzi(day - 1, (n + 1) * 2);
-            &#125;
-        &#125;
-</code></pre>
-<h2 id="走迷宫"><a href="#走迷宫" class="headerlink" title="走迷宫"></a>走迷宫</h2><pre><code>    /**
-         * 迷宫的1为障碍，2表示通路，3表示走过的不通的路
-         *
-         * @param list     表示输入的数组
-         * @param startRow 开始位置的横坐标
-         * @param startCol 开始位置的纵坐标
-         * @return
-         */
-        public static boolean seek(int[][] list, int startRow, int startCol) &#123;
-            //若迷宫的出口为2，则找到路径，迷宫结束
-            if (list[5][6] == 2) &#123;
-                return true;
-            &#125; else &#123;
-                if (list[startRow][startCol] == 0) &#123;
-                    list[startRow][startCol] = 2;
-                    //判断该点能走通，继续下一步
-                    if (seek(list, startRow + 1, startCol)) &#123;//向下
-                        return true;
-                    &#125; else if (seek(list, startRow, startCol + 1)) &#123;//向右
-                        return true;
-                    &#125; else if (seek(list, startRow - 1, startCol)) &#123;//向上
-                        return true;
-                    &#125; else if (seek(list, startRow, startCol - 1)) &#123;//向左
-                        return true;
-                    &#125; else &#123;
-                        //走不通
-                        list[startRow][startCol] = 3;
-                        return false;
+                int index = i;
+                for (int j = i + 1; j &lt; list.length; j++) &#123;
+                    if (list[index] &gt; list[j]) &#123;
+                        index = j;
                     &#125;
-                &#125; else &#123;
-                    return false;
+                &#125;
+                if (index != i) &#123;
+                    int tempt = list[i];
+                    list[i] = list[index];
+                    list[index] = tempt;
                 &#125;
             &#125;
+            return list;
         &#125;
+</code></pre>
+<h1 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h1><pre><code>    public static void insertArr(int[] list) &#123;
+            for (int i = 1; i &lt; list.length; i++) &#123;
+                int key = list[i];
+                int j = i - 1;
+                while (j &gt;= 0 &amp;&amp; list[j] &gt; key) &#123;
+                    list[j + 1] = list[j];
+                    j--;
+                &#125;
+                list[j + 1] = key;
+            &#125;
+    
+        &#125;           
         
-    结果：
-        1 1 1 1 1 1 1 1  
-        1 2 2 2 0 0 0 1  
-        1 1 1 2 0 0 0 1  
-        1 0 0 2 0 0 0 1  
-        1 0 0 2 0 0 0 1  
-        1 0 0 2 2 2 2 1  
-        1 1 1 1 1 1 1 1  
+</code></pre>
+<h1 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h1><pre><code>      public static void shellList(int[] list) &#123;
+            //gap为一个步长
+            for (int gap = list.length / 2; gap &gt; 0; gap /= 2) &#123;
+                //假设步长开头0号位的节点是在正确的位置
+                for (int i = gap; i &lt; list.length; i++) &#123;
+                    int key = list[i];
+                    int j = i - gap;
+                    while (j &gt;= 0 &amp;&amp; list[j] &gt; key) &#123;
+                        //i点即j+gap变为list[j]的值，
+                        list[j+gap] = list[j];
+                        list[j] = key;
+                        j -= gap;
+                    &#125;
+                &#125;
+                System.out.println(Arrays.toString(list));
+            &#125;
+        &#125;
+</code></pre>
+<h1 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h1><pre><code>    public static void quickList(int[] list, int left, int right) &#123;
+            if (left &lt; right) &#123;
+                int midIndex = getMidIndex(list, left, right);
+    
+                if (left &lt; midIndex - 1) &#123;
+                    quickList(list, left, midIndex - 1);
+                &#125;
+                if (right &gt; midIndex + 1) &#123;
+                    quickList(list, midIndex + 1, right);
+                &#125;
+    
+            &#125;
+        &#125;
+        private static int getMidIndex(int[] list, int left, int right) &#123;
+                //比较基数元素
+                int pivot = list[left];
+                while (left &lt; right) &#123;
+                    //将pivot比较右侧的元素，如果比pivot大，指针左移，如果比pivot小则填补前面取出的空值
+                    while (right &gt; left &amp;&amp; list[right] &gt;= pivot) &#123;
+                        right--;
+                    &#125;
+                    list[left] = list[right];
+                    //将pivot比较左侧的元素，如果比pivot小，指针右移，如果比pivot大，则填补右侧空出的位置
+                    while (left &lt; right &amp;&amp; list[left] &lt;= pivot) &#123;
+                        left++;
+                    &#125;
+                    list[right] = list[left];
+                &#125;
+                list[left] = pivot;
+                return left;
+            &#125;
+</code></pre>
+<h1 id="归并排序（分治思想）"><a href="#归并排序（分治思想）" class="headerlink" title="归并排序（分治思想）"></a>归并排序（分治思想）</h1><pre><code>        public static void mergeList(int[] list, int left, int right) &#123;
+            if (left &lt; right) &#123;
+                int mid = left + (right - left) / 2;
+                mergeList(list, left, mid);
+                mergeList(list, mid + 1, right);
+                merge(list, left, mid, right);
+            &#125;
+        &#125;
+    
+        private static void merge(int[] list, int left, int mid, int right) &#123;
+            System.out.println(&quot;我是merge&quot;);
+            int leftLength = mid - left + 1;
+            int rightLen = right - (mid + 1) + 1;
+            int[] leftTemp = new int[leftLength];
+            int[] rightTemp = new int[rightLen];
+            for (int i = 0; i &lt; leftTemp.length; i++) &#123;
+                leftTemp[i] = list[left + i];
+            &#125;
+            for (int i = 0; i &lt; rightTemp.length; i++) &#123;
+                rightTemp[i] = list[mid + 1 + i];
+            &#125;
+            int p = left;//临时数组的指针
+            int i = 0;
+            int j = 0;
+            while (i &lt; leftLength &amp;&amp; j &lt; rightLen) &#123;
+                if (leftTemp[i] &lt; rightTemp[j]) &#123;
+                    list[p] = leftTemp[i];
+                    i++;
+                &#125; else &#123;
+                    list[p] = rightTemp[j];
+                    j++;
+                &#125;
+                p++;
+            &#125;
+            //当上一个while循环结束，查看下是否左侧，或者右侧还有剩余的数据
+            while (i &lt; leftLength) &#123;
+                list[p] = leftTemp[i];
+                p++;
+                i++;
+            &#125;
+            while (j &lt; rightLen) &#123;
+                list[p] = rightTemp[j];
+                p++;
+                j++;
+            &#125;
+    
+    
+        &#125;
+</code></pre>
+<h1 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h1><pre><code>     public static void buketList(int[] list) &#123;
+            //新建几个桶，桶里面放数值,10表示从0-9位，后面的存放数据
+            int[][] buket = new int[10][list.length];
+            //新建一个数组，记录每个桶放入的数据个数
+            int[] buketCount = new int[10];
+            //求最大的数，求最大数的位数
+            int max = list[0];
+            for (int i = 1; i &lt; list.length; i++) &#123;
+                if (list[i] &gt; max) &#123;
+                    max = list[i];
+                &#125;
+            &#125;
+            //求最大数的位数
+            int n = (max + &quot;&quot;).length();
+            for (int i = 0; i &lt; n; i++) &#123;
+                //将list的数据放入桶中
+                for (int j = 0; j &lt; list.length; j++) &#123;
+                    int index = (int) (list[j] / Math.pow(10, i) % 10);
+                    buket[index][buketCount[index]] = list[j];
+                    buketCount[index]++;
+                &#125;
+                //将桶中的数据放入list中
+                int indexList = 0;
+                for (int j = 0; j &lt; buketCount.length; j++) &#123;
+                    if (buketCount[j] != 0) &#123;
+                        for (int k = 0; k &lt; buketCount[j]; k++) &#123;
+                            list[indexList++] = buket[j][k];
+    
+                        &#125;
+                        buketCount[j] = 0;
+                    &#125;
+    
+                &#125;
+            &#125;
+    
+    
+            //遍历每个桶将数据放入
+            for (int i = 0; i &lt; buket.length; i++) &#123;
+    
+            &#125;
+    
+        &#125;
 </code></pre>
 
                 
@@ -578,7 +689,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://linchentoday.github.io/2022/04/26/%E9%80%92%E5%BD%92%E9%97%AE%E9%A2%98/">https://linchentoday.github.io/2022/04/26/%E9%80%92%E5%BD%92%E9%97%AE%E9%A2%98/</a>
+                    <a href="https://linchentoday.github.io/2022/04/27/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">https://linchentoday.github.io/2022/04/27/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -795,13 +906,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/04/27/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">
+                <a href="/2022/05/02/Java%E5%AE%9E%E7%8E%B0%E6%95%A3%E5%88%97%E8%A1%A8%EF%BC%88%E5%93%88%E5%B8%8C%E8%A1%A8%EF%BC%89/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="排序算法">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Java实现散列表（哈希表）">
                         
-                        <span class="card-title">排序算法</span>
+                        <span class="card-title">Java实现散列表（哈希表）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -812,7 +923,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-27
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-05-02
                         </span>
                         <span class="publish-author">
                             
@@ -840,13 +951,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/04/25/Java%E4%BD%BF%E7%94%A8%E6%A0%88%E5%86%99%E9%80%86%E6%B3%A2%E5%85%B0%E8%AE%A1%E7%AE%97%E5%99%A8%E6%80%9D%E6%83%B3%E5%8F%8A%E8%A7%A3%E9%87%8A/">
+                <a href="/2022/04/26/%E9%80%92%E5%BD%92%E9%97%AE%E9%A2%98/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Java使用栈写简单逆波兰计算器思想及解释">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="递归问题">
                         
-                        <span class="card-title">Java使用栈写简单逆波兰计算器思想及解释</span>
+                        <span class="card-title">递归问题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -857,7 +968,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-25
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-26
                             </span>
                         <span class="publish-author">
                             
